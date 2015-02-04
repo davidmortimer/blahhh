@@ -14,6 +14,6 @@ public class Lol {
 //        for (User user : dao.getAllUsers()){
 //            System.out.println("[ ID: " + user.getId() + ", Username: " + user.getUsername() + ", Email: " + user.getEmail() + " ]");
 //        }
-        dao.createUser(new User("jbiuh", "jiuh2", "ddeed"));
+        dao.createUser(new User("kz", "112233", "lol"));
     }
 }
