@@ -1,22 +1,22 @@
-package com.picstickapp.user;
+package com.picstickapp.account;
 
 /**
  * Created by David on 01/02/2015.
  */
-public class User {
+public class Account {
 
     private int id;
     private String username;
     private String password;
     private String email;
 
-    public User(int id, String username, String email) {
+    public Account(int id, String username, String email) {
         this.id = id;
         this.username = username;
         this.email = email;
     }
 
-    public User(String username, String password, String email) {
+    public Account(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;

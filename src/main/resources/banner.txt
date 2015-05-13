@@ -1,0 +1,2 @@
+Picstick
+${spring-boot.formatted-version}
