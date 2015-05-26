@@ -1,5 +1,6 @@
 package com.picstickapp.account;
 
+import com.picstickapp.user.PicstickUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -39,9 +40,12 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-    public void createUser(Account account) {
-        String sql = "INSERT INTO memberp (username, password, email) VALUES (?, ?, ?)";
-        jdbc.update(sql, account.getUsername(), account.getPassword(), account.getEmail());
+    public void createUser(PicstickUser picstickUser) {
+        String role = "ROLE_USER";
+        String userSql = "INSERT INTO users (username, password, enabled) VALUES (?, ?, ?)";
+        jdbc.update(userSql, picstickUser.getUsername(), picstickUser.getPassword(), 1);
+        String authoritiesSql = "INSERT INTO authorities (username, authority) VALUES (?, ?)";
+        jdbc.update(authoritiesSql, picstickUser.getUsername(), role);
     }
 
 }

@@ -1,5 +1,6 @@
-package com.picstickapp;
+package com.picstickapp.spring;
 
+import com.picstickapp.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,8 +23,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private JdbcTemplate jdbc;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().fullyAuthenticated();
-        http.httpBasic();
+//        http.authorizeRequests().antMatchers("/register").anonymous().anyRequest().fullyAuthenticated();
+        http
+                .authorizeRequests()
+                .antMatchers("/resources/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
         http.csrf().disable();
     }
     @Autowired

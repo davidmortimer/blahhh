@@ -1,5 +1,6 @@
 package com.picstickapp.account;
 
+import com.picstickapp.user.PicstickUser;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 import java.util.List;
@@ -13,6 +14,6 @@ public interface AccountDao {
     public Account findByUsername(String username);
     public Account findByUserId(int userId);
     public List<Account> getAllUsers();
-    public void createUser(Account account);
+    public void createUser(PicstickUser picstickUser);
 
 }

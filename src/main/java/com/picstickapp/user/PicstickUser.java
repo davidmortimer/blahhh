@@ -1,51 +1,38 @@
 package com.picstickapp.user;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-
-import java.util.Collection;
-
 /**
  * Created by David on 11/05/2015.
  */
-public class PicstickUser extends User {
+public class PicstickUser {
 
     private static final long serialVersionUID = -3531439484732724601L;
 
-    private String firstName;
-    private String lastName;
+    private String username;
+    private String password;
     private String email;
 
-    public PicstickUser(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-        super(username, password, authorities);
+
+    public String getUsername() {
+        return username;
     }
 
-    public static long getSerialversionuid() {
-        return serialVersionUID;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getPassword() {
+        return password;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
 }

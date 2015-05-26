@@ -25,7 +25,7 @@ public class AccountController {
     public void test() {
         System.out.println("Test!");
         Account newAccount = new Account("testacount", "testpass", "testemail");
-        accountDao.createUser(newAccount);
+        //accountDao.createUser(newAccount);
         System.out.println(newAccount.toString());
     }
 
